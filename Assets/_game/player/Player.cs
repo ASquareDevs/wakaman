@@ -49,6 +49,8 @@ namespace Wakaman.Entities
             get => isFrozen;
         }
 
+        public GameObject testimage;
+
         // -------------------------- //
         // Monobehaviour
         // -------------------------- //
@@ -105,7 +107,35 @@ namespace Wakaman.Entities
                 Die();
         }
 
-        // -------------------------- //
+        #region VUPLEX INPUTS
+
+        //--------------------------//
+        public void VuplexInputs(string inputs)
+        //--------------------------//
+        {
+            testimage.SetActive(true);
+            if (inputs == "INPUT 1")
+            {
+                Move(Vector3Int.left);
+            }
+            else if (inputs == "INPUT 2")
+            {
+                Move(Vector3Int.right);
+            }
+            else if (inputs == "INPUT 3")
+            {
+                Move(Vector3Int.up);
+            }
+            else if (inputs == "INPUT 4")
+            {
+                Move(Vector3Int.down);
+            }
+
+        }//END VuplexInputs
+
+        #endregion
+
+        //--------------------------//
         // Actions
         // -------------------------- //
 

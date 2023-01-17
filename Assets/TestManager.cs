@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Wakaman.Entities;
 
 public class TestManager : MonoBehaviour
 {
-    public void Testing()
+   public void Testing()
     {
-        Debug.Log("Testing testing 1 2");
+        //FindObjectOfType<Player>().testimage.SetActive(true);
     }
 }

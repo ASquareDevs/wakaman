@@ -21,12 +21,12 @@ window.ReceiveMessageFromIFrame = function( _event )
 //--------------------------------------------------//
 {	
 	console.log("CommunicationInner.js//ReceiveMessageFromIFrame// message " + JSON.stringify(_event .data));
-
     //Pass the message from the outer html javascript (via our BrandXRAPI.js) to our unity instance, which will check the UID and call the logic if there's a match
     if( window.unityInstance != null )
     {
 		console.log("Communication.js SendMessage() parameters = " + _event.data );
-		window.unityInstance.SendMessage( "Test Manager", "Testing", _event.data );
+		window.unityInstance.SendMessage( "Player", "VuplexInputs", _event.data );
+		//window.unityInstance.SendMessage( "Test Manager", "Testing" );
     }
     else
     {
@@ -36,7 +36,6 @@ window.ReceiveMessageFromIFrame = function( _event )
 } //END ReceiveMessageFromIFrame
 
 // Assign handler to message event, this allows us to intercept window.postMessage commands 
-// sent from the outer html via our BrandXRAPI.js code fdoutside of the iFrame
 if ( window.addEventListener ) 
 {
     window.addEventListener('message', window.ReceiveMessageFromIFrame, false);
@@ -44,6 +43,10 @@ if ( window.addEventListener )
 else if ( window.attachEvent ) // ie8
 {
     window.attachEvent('onmessage', window.ReceiveMessageFromIFrame);
+}
+else
+{
+	console.log('DID NOT ADD LISTENER');
 }
 
 //#endregion

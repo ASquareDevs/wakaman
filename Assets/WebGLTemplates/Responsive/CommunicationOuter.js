@@ -18,8 +18,9 @@ function SendMessageToUnity(e)
 //---------------------------------------------------//
 {
 	console.log('SendMessageToUnity() // message' + e.data.data);
-	var iframesInPage = window.parent.document.body.getElementsByClassName("enterpriseIframe");
-	iframesInPage[0].contentWindow.postMessage( 'Input', "*" );
+	var iframesInPage = window.document.body.getElementsByClassName("enterpriseIframe");
+
+	iframesInPage[0].contentWindow.postMessage( e.data.data, "*" );
 
 } //END SendMessageToUnity
 
@@ -28,7 +29,6 @@ function SendMessageToUnity(e)
 //Attach an event listener on our webpage, which will listent to message sent by the iFrame
 if( window.addEventListener )
 {
-	console.log('event added');
 	addEventListener("message", SendMessageToUnity, false);
 }
 else if( window.attachEvent )
