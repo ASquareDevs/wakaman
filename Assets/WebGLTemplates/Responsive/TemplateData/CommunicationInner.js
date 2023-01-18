@@ -17,16 +17,34 @@
 //                      If this doesn't match our stored uid then we disregard the sent in message
 //      receiver: 	The name of the receiver method we want to call in javascript
 //      parameters: An array of variables seperated by underscores
-window.ReceiveMessageFromIFrame = function( _event )
+window.ReceiveMessageFromIFrame = function( message )
 //--------------------------------------------------//
 {	
-	console.log("CommunicationInner.js//ReceiveMessageFromIFrame// message " + JSON.stringify(_event .data));
+	//console.log("CommunicationInner.js//ReceiveMessageFromIFrame// message " + JSON.stringify(_event .data));
     //Pass the message from the outer html javascript (via our BrandXRAPI.js) to our unity instance, which will check the UID and call the logic if there's a match
     if( window.unityInstance != null )
     {
-		console.log("Communication.js SendMessage() parameters = " + _event.data );
-		window.unityInstance.SendMessage( "Player", "VuplexInputs", _event.data );
-		//window.unityInstance.SendMessage( "Test Manager", "Testing" );
+		var inputGiven = message.data;
+		inputGiven = inputGiven;
+		window.unityInstance.SendMessage( "Player", "VuplexInputs", inputGiven);
+	/*			
+		if(message == 'INPUT 1')
+		{
+			window.unityInstance.SendMessage( "Player", "MoveUp");
+		}
+		else if(message == 'INPUT 2'))
+		{
+			window.unityInstance.SendMessage( "Player", "MoveDown");
+		}
+		else if(message == 'INPUT 3'))
+		{
+			window.unityInstance.SendMessage( "Player", "MoveLeft");
+		}
+		else if(message == 'INPUT 4'))
+		{
+			window.unityInstance.SendMessage( "Player", "MoveRight");
+		}	
+*/		
     }
     else
     {

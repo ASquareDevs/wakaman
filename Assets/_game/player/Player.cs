@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 using Wakaman.Utilities;
 
 namespace Wakaman.Entities
@@ -50,7 +51,7 @@ namespace Wakaman.Entities
         }
 
         public GameObject testimage;
-
+        public bool testing = false;
         // -------------------------- //
         // Monobehaviour
         // -------------------------- //
@@ -109,11 +110,10 @@ namespace Wakaman.Entities
 
         #region VUPLEX INPUTS
 
-        //--------------------------//
+        //----------------------------------------//
         public void VuplexInputs(string inputs)
-        //--------------------------//
+        //----------------------------------------//
         {
-            testimage.SetActive(true);
             if (inputs == "INPUT 1")
             {
                 Move(Vector3Int.left);

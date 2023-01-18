@@ -14,13 +14,13 @@
 
 //---------------------------------------------------//
 //Sends a message to the CommunicationInner.js
-function SendMessageToUnity(e)
+function SendMessageToUnity(message)
 //---------------------------------------------------//
 {
-	console.log('SendMessageToUnity() // message' + e.data.data);
+	//console.log('SendMessageToUnity() // message' + message.data);
 	var iframesInPage = window.document.body.getElementsByClassName("enterpriseIframe");
 
-	iframesInPage[0].contentWindow.postMessage( e.data.data, "*" );
+	iframesInPage[0].contentWindow.postMessage(message.data, "*" );
 
 } //END SendMessageToUnity
 
